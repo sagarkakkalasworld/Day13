@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-chart
+  namespace: react-microk8s
+  labels:    
+    app: react-demo
+spec:
+  containers:
+  - name: react-demo
+    image: sagarkakkalasworld/react-microk8s:latest
+    ports:
+    - containerPort: 80
