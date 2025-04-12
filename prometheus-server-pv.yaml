@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: prometheus-server-pv
+  labels:
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: prometheus
+spec:
+  capacity:
+    storage: 8Gi  # Ensure this matches the PVC's request
+  accessModes:
+    - ReadWriteOnce  # Ensure this matches the PVC's access mode  # Adjust this to a valid path on the node(s)
+  volumeMode: Filesystem
+  hostPath:
+    path: /mnt/data/prometheus
